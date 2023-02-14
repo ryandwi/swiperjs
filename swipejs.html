@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body style="overflow: hidden;">
+    <!-- Swiper -->
+    <button class="tiggerButton">Trigger</button>
+    <button class="closeButton">Close</button>
+    <button class="nextButton">Next</button>
+    <button class="prevButton">Prev</button>
+
+    <div class="swiper mySwiper d-none">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <h3>1</h3>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam voluptate cumque minus quae esse, vel
+                sapiente
+                amet beatae rem voluptates corrupti excepturi consequuntur aut eius deserunt cupiditate natus ipsum.
+                Qui.
+            </div>
+            <div class="swiper-slide">
+                <h3>2</h3>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam voluptate cumque minus quae esse, vel
+                sapiente
+                amet beatae rem voluptates corrupti excepturi consequuntur aut eius deserunt cupiditate natus ipsum.
+                Qui.
+            </div>
+            <div class="swiper-slide">
+                <h3>3</h3>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam voluptate cumque minus quae esse, vel
+                sapiente
+                amet beatae rem voluptates corrupti excepturi consequuntur aut eius deserunt cupiditate natus ipsum.
+                Qui.
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        const triggerButton = document.querySelector('.tiggerButton');
+        const closeButton = document.querySelector('.closeButton');
+        const nextButton = document.querySelector('.nextButton');
+        const prevButton = document.querySelector('.prevButton');
+        const swiperWrapper = document.querySelector('.mySwiper');
+
+        var swiper;
+
+        triggerButton.addEventListener('click', function() {
+            swiper = new Swiper(".mySwiper", {
+                direction: "vertical",
+                pagination: false,
+            });
+
+            swiperWrapper.classList.remove('d-none');
+        });
+
+        closeButton.addEventListener('click', function() {
+            swiperWrapper.classList.add('d-none');
+            swiper.destroy();
+        });
+
+        nextButton.addEventListener('click', function() {
+           swiper.slideNext();
+        });
+        
+        prevButton.addEventListener('click', function() {
+            swiper.slidePrev();
+        });
+    </script>
+</body>
+
+</html>
